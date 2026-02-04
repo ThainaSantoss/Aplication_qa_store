@@ -1,4 +1,4 @@
-function ShoppingCart({ cartItems }) {
+function ShoppingCart({ cartItems, onCheckout }) {
   return (
     <div>
       <h2>Carrinho de Compras</h2>
@@ -13,6 +13,7 @@ function ShoppingCart({ cartItems }) {
           ))}
         </ul>
       )}
+      <button onClick={onCheckout}>Finalizar compra</button>
     </div>
   );
 }
