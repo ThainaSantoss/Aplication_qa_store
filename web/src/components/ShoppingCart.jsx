@@ -1,11 +1,11 @@
 function ShoppingCart({ cartItems, onCheckout }) {
   return (
-    <div>
-      <h2>Carrinho de Compras</h2>
+    <div className="add-to-cart" data-testid="add-to-cart">
+      <h2 className="text-cart">Carrinho de Compras</h2>
       {cartItems.length === 0 ? (
-        <p>Seu carrinho está vazio</p>
+        <p className="paragraph-cart" data-testid="empty-cart">Seu carrinho está vazio</p>
       ) : (
-        <ul>
+        <ul className="list-cart" data-testid="cart-item">
           {cartItems.map((item, index) => (
             <li key={index}>
               {item.title} - ${item.price}
@@ -13,7 +13,7 @@ function ShoppingCart({ cartItems, onCheckout }) {
           ))}
         </ul>
       )}
-      <button onClick={onCheckout}>Finalizar compra</button>
+      <button className="button-cart" data-testid="checkout-button" onClick={onCheckout}>Finalizar compra</button>
     </div>
   );
 }
