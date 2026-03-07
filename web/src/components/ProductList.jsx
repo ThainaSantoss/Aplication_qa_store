@@ -13,11 +13,11 @@ function ProductList({addToCart}) {
     return(
         <div>
             <h2>Lista de produtos</h2>
-            <ul>
+            <ul className="product-list" data-testid="product-list">
                 {products.map((p) => (
-                    <li key={p.id}>
+                    <li key={p.id} data-testid="product-item">
                         <strong>{p.title}</strong> - ${p.price}
-                        <button onClick={() => addToCart(p)}>Adicionar ao carrinho</button>
+                        <button data-testid="add-to-cart" onClick={() => addToCart(p)}>Adicionar ao carrinho</button>
                     </li>
                 ))}
             </ul>

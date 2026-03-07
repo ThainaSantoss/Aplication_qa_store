@@ -3,7 +3,7 @@ import { useState } from "react";
 function CouponForm() {
 
     const [couponCode, setCouponCode] = useState("");
-    const [dataCoupon, setDataCoupon] = useState({finData: ""})
+    const [dataCoupon, setDataCoupon] = useState({feedback: ""})
 
     const validCoupons = {
         DESCONTO10: 0.10,
@@ -15,15 +15,15 @@ function CouponForm() {
         if (validCoupons[couponCode]) {
             if(validCoupons[couponCode] == "frete") {
                 console.log("Cupom aplicado: frete gratis!");
-                setDataCoupon({finData: "Cupom aplicado: frete gratis!"})
+                setDataCoupon({feedback: "Cupom aplicado: frete gratis!"})
             } else {
                 const discount = validCoupons[couponCode];
                 console.log("Cupom aplicado! Desconto de: ", discount*100, "%");
-                setDataCoupon({finData: "Cupom aplicado!"})
+                setDataCoupon({feedback: "Cupom aplicado!"})
             } 
         } else {
             console.log("Cupom inválido!");
-            setDataCoupon({finData: "Cupom inválido!"})
+            setDataCoupon({feedback: "Cupom inválido!"})
      
         }
         
@@ -36,9 +36,11 @@ function CouponForm() {
         type="text"
         value={couponCode}
         onChange={(e) => setCouponCode(e.target.value)}
+        className="coupon-from"
+        data-testid="coupon-input"
         />
-      <button onClick={handleApply}>Aplicar</button>
-      {dataCoupon.finData && <p>{dataCoupon.finData}</p>}
+      <button onClick={handleApply} className="button-coupon" data-testid="apply-coupon">Aplicar</button>
+      {dataCoupon.feedback && <p data-testid="coupon-status">{dataCoupon.feedback} </p>}
     </div>
 
     );
