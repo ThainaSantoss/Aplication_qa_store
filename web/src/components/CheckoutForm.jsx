@@ -28,11 +28,11 @@ function CheckoutForm({ cartItems}) {
         </div>
         <div>
           <label>Endereço: </label>
-          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} data-testid="adress-input" />
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} data-testid="address-input" />
         </div>
         <div>
           <label>Pagamento: </label>
-          <input type="text" value={payment} onChange={(e) => setPayment(e.target.value)} data-testid="payment-form" />
+          <input type="text" value={payment} onChange={(e) => setPayment(e.target.value)} data-testid="payment-input" />
         </div>
         <button className="confirm-order" data-testid="confirm-order" type="submit">Confirmar Pedido</button>
       </form>
